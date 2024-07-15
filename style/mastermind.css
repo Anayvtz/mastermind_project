@@ -16,6 +16,7 @@
     color: black;
     padding: 20px;
     text-align: center;
+    border: none;
 }
 
 .grid-item:nth-child(4n+1) {
@@ -32,4 +33,14 @@
 
 .grid-item:nth-child(4n+4) {
     background-color: yellow;
+}
+
+#restart {
+    display: block;
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    border: none;
 }

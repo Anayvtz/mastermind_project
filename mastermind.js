@@ -7,10 +7,10 @@
 // --------------------------------------
 
 // imports
-import { createBoard, disableBoard } from "./board.js";
+import { createBoard, disableBoard, activateRestartButton } from "./board.js";
 
 // globals
-let codeMakerOptions = [
+export let codeMakerOptions = [
     [1, 2, 3, 4],
     [1, 2, 4, 3],
     [1, 3, 2, 4],
@@ -43,7 +43,7 @@ let codeMakerOptions = [
 export class CodeBrakerRow {
     guessed = [];
     rowIx;
-    round;
+
     static redIx = 0;
     static greenIx = 1;
     static blueIx = 2;
@@ -89,13 +89,19 @@ export class CodeBrakerBoard {
 // main
 
 let codeBrakerBoard = new CodeBrakerBoard();
-let codeMakerRowIx = codeMakerChooseRowIx();
-let codeMakerRow = codeMakerOptions[codeMakerRowIx];
-console.log(codeMakerRow);
+
+let codeMakerRow;
+getNewCodeMakerRow();
 createBoard();
+activateRestartButton();
 
 // functions
-function codeMakerChooseRowIx() {
+export function getNewCodeMakerRow() {
+    let codeMakerRowIx = codeMakerChooseRowIx();
+    codeMakerRow = codeMakerOptions[codeMakerRowIx];
+    console.log(codeMakerRow);
+}
+export function codeMakerChooseRowIx() {
     return Math.floor(Math.random() * codeMakerOptions.length);
 }
 

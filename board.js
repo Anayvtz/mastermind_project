@@ -1,7 +1,7 @@
 
 
 // imports
-import { CodeBrakerBoard, CodeBrakerRow, makeMove } from "./mastermind.js";
+import { CodeBrakerBoard, CodeBrakerRow, makeMove, codeMakerChooseRowIx, getNewCodeMakerRow } from "./mastermind.js";
 
 // globals
 
@@ -35,4 +35,16 @@ function createBoardRow(index, grid) {
 }
 export function disableBoard() {
     document.querySelectorAll(".grid-item").forEach(btn => btn.disabled = true);
+}
+export function activateRestartButton() {
+    let restartBtn = document.getElementById("restart");
+    restartBtn.addEventListener("click", () => {
+        document.querySelectorAll(".grid-item").forEach(btn => {
+            btn.disabled = false;
+            btn.textContent = "";
+            btn.style.border = "none";
+        });
+        getNewCodeMakerRow();
+
+    })
 }
