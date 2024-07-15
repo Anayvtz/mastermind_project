@@ -89,7 +89,6 @@ export class CodeBrakerBoard {
 // main
 
 let codeBrakerBoard = new CodeBrakerBoard();
-
 let codeMakerRow;
 getNewCodeMakerRow();
 createBoard();
